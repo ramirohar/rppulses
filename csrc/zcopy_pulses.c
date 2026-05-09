@@ -50,16 +50,3 @@ void find(const int16_t *data, size_t n, int16_t th, uint8_t *out) {
         prev = data[i] >= th;
     }
 }
-
-void neon_count_pulses_windowed(const int16_t *data, size_t n, int16_t th,
-                          size_t window_size, uint32_t *out, size_t n_windows) {
-    for (size_t w = 0; w < n_windows; w++) {
-
-        size_t start = w * window_size;
-        size_t end   = start + window_size;
-        size_t peek  = (w < n_windows - 1) ? 1 : 2;
-        size_t len   = (end + peek <= n) ? window_size + peek : n - start;
-        out[w] = (uint32_t)neon_count_pulses(data + start, len, th);
-    }
-
-}
