@@ -1,0 +1,12 @@
+[workspace]
+authors = ["Ramiro Harguiunteguy <ramirohar@gmail.com>"]
+channels = ["conda-forge"]
+name = "rppulses"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+setuptools = ">=82.0.1,<83"
+numpy = ">=2.4.3,<3"
