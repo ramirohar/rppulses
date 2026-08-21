@@ -41,5 +41,5 @@ def find(data: np.ndarray, threshold: int) -> np.ndarray:
         ctypes.c_int16(threshold),
         out.ctypes.data_as(ctypes.POINTER(ctypes.c_uint8)),
     )
-    return out.nonzero()[0] - 1
+    return (out.nonzero()[0] - 1).astype(dtype=np.int_)
     
